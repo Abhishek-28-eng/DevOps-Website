@@ -1,4 +1,4 @@
-# Use Node.js 20 Alpine
+# Use Node.js Alpine
 FROM node:20-alpine
 
 # Set working directory
@@ -7,14 +7,14 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies (production only)
+# Install production dependencies
 RUN npm install --production
 
 # Copy all backend files
 COPY . .
 
-# Expose backend port
+# Expose port
 EXPOSE 4000
 
-# Start server
-CMD ["node", "server.js"]
+# Start server with correct entry
+CMD ["node", "src/index.js"]
