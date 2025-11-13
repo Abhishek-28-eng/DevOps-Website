@@ -1,20 +1,21 @@
-# Use Node.js Alpine
 FROM node:20-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Install build tools for bcrypt
+RUN apk add --no-cache python3 make g++
+
+# Copy package.json first
 COPY package*.json ./
 
-# Install production dependencies
-RUN npm install --production
+# Install all dependencies (including dev)
+RUN npm install
 
-# Copy all backend files
+# Copy source files
 COPY . .
 
 # Expose port
 EXPOSE 4000
 
-# Start server with correct entry
-CMD ["node", "src/index.js"]
+# Use npm run dev for development
+CMD ["npm", "run", "dev"]
