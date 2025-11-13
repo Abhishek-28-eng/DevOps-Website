@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: devsphere-backend
+    restart: always
+    env_file:
+      - ./backend/.env
+    networks:
+      - devsphere-net
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: devsphere-frontend
+    restart: always
+    ports:
+      - "3000:80"  # temporarily using 3000 until domain setup
+    depends_on:
+      - backend
+    networks:
+      - devsphere-net
+
+networks:
+  devsphere-net:
+    driver: bridge
