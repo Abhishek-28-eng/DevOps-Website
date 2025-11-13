@@ -1,26 +1,26 @@
 version: "3.9"
+
 services:
   backend:
-    build:
-      context: ./backend
-    container_name: devsphere-backend
-    restart: always
-    env_file:
-      - ./backend/.env
+    build: ./backend
+    container_name: devsphere_backend
+    restart: unless-stopped
+    env_file: ./backend/.env
+    ports:
+      - "4000:4000"       # Backend API
     networks:
       - devsphere-net
 
   frontend:
-    build:
-      context: ./frontend
-    container_name: devsphere-frontend
-    restart: always
+    build: ./frontend
+    container_name: devsphere_frontend
+    restart: unless-stopped
     ports:
-      - "3000:80"  # temporarily using 3000 until domain setup
-    depends_on:
-      - backend
+      - "8080:80"         # Temporary frontend access
     networks:
       - devsphere-net
+    depends_on:
+      - backend
 
 networks:
   devsphere-net:
