@@ -6,6 +6,8 @@ services:
     container_name: devsphere_backend
     env_file: ./backend/.env
     restart: unless-stopped
+    ports:
+      - "4000:4000"     # IMPORTANT
     networks:
       - devsphere-net
 
@@ -13,12 +15,15 @@ services:
     build: ./frontend
     container_name: devsphere_frontend
     restart: unless-stopped
+    ports:
+      - "80:80"         # IMPORTANT
     networks:
       - devsphere-net
 
   nginx:
     build: ./nginx
     container_name: devsphere_nginx
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
@@ -27,6 +32,7 @@ services:
       - frontend
     volumes:
       - certbot-etc:/etc/letsencrypt
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - devsphere-net
 
