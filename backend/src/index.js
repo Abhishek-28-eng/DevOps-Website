@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { sequelize } from "./config/db.js";
 import authRoutes from "./routes/auth.js";
 import blogRoutes from "./routes/blogs.js";
+import notesRoutes from "./routes/notesRoutes.js";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ const authLimiter = rateLimit({
 
 app.use("/api/auth", authLimiter, authRoutes);
 app.use("/api/blogs", blogRoutes);
+app.use("/api/notes", notesRoutes);
 
 app.get("/", (req, res) => res.send("DevOpsDaily API"));
 
