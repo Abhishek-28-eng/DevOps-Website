@@ -8,6 +8,5 @@
 
 FROM nginx:stable-alpine
 
-RUN mkdir -p /var/www/certbot
-
 CMD ["nginx", "-g", "daemon off;"]
+
