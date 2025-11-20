@@ -32,10 +32,13 @@ const PORT = process.env.PORT || 4000;
   try {
     await sequelize.authenticate();
     // for dev: sync models -> create tables if not exist
-    await sequelize.sync({ alter: true });
+    await sequelize.sync();
     app.listen(PORT, () => console.log(`Server running on ${PORT}`));
   } catch (err) {
     console.error("Failed to start:", err);
     process.exit(1);
   }
 })();
+
+
+//{ alter: true }
