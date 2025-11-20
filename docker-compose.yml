@@ -62,8 +62,8 @@ services:
     container_name: devsphere_backend
     env_file: ./backend/.env
     restart: unless-stopped
-    ports:
-      - "4000:4000"
+    expose:
+      - "4000"   # internal only
     networks:
       - devsphere-net
 
@@ -71,9 +71,10 @@ services:
     build: ./frontend
     container_name: devsphere_frontend
     restart: unless-stopped
+    expose:
+      - "3000"   # internal only
     networks:
       - devsphere-net
-    # No ports—frontend only served through nginx
 
   nginx:
     build: ./nginx
