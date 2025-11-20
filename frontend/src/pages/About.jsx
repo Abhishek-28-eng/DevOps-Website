@@ -6,12 +6,12 @@ export default function About() {
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Heading */}
         <h1 className="text-3xl font-bold text-center text-sky-600">
-          About DevSphere
+          About Devwithabhi
         </h1>
 
         {/* Introduction */}
         <p className="text-gray-700 text-base leading-relaxed text-center">
-          <strong>DevSphere</strong> is your go-to platform for practical DevOps tutorials. 
+          <strong>Devwithabhi</strong> is your go-to platform for practical DevOps tutorials. 
           We simplify complex concepts with bite-sized, actionable guides for engineers and tech enthusiasts.
         </p>
 
@@ -29,7 +29,7 @@ export default function About() {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-sky-600 mb-2">Why DevSphere?</h2>
+            <h2 className="text-lg font-semibold text-sky-600 mb-2">Why Devwithabhi?</h2>
             <p className="leading-relaxed">
               Tutorials are concise, practical, and suitable for both beginners and experienced engineers. 
               Learn confidently and apply skills in real-world scenarios.

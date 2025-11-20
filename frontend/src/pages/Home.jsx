@@ -183,7 +183,7 @@ export default function Home() {
 
           {/* About */}
           <div className="bg-white p-5 rounded-xl shadow-lg">
-            <h3 className="font-semibold text-lg mb-2">About DevSphere</h3>
+            <h3 className="font-semibold text-lg mb-2">About Devwithabhi</h3>
             <p className="text-sm text-gray-600">
               Bite-sized tutorials and hands-on guides for DevOps students, updated daily.
             </p>
