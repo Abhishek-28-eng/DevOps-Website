@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "../../api/axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function NewPost() {
   const [title, setTitle] = useState("");
@@ -23,7 +23,9 @@ export default function NewPost() {
     if (file) fd.append("feature_image", file);
 
     try {
-      const res = await axios.post("/blogs", fd, { headers: { "Content-Type": "multipart/form-data" } });
+      const res = await axios.post("/blogs", fd, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       alert("Created");
       nav(`/blog/${res.data.slug}`);
     } catch (err) {
@@ -34,16 +36,32 @@ export default function NewPost() {
 
   return (
     <div className="max-w-3xl mx-auto bg-white p-6 rounded-md shadow-sm">
-      <h2 className="text-xl font-semibold mb-4">New Post</h2>
+      
+      {/* --- Header + Link to Create Note --- */}
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-semibold">New Post</h2>
+
+        <Link
+          to="/admin/notes/new"
+          className="px-4 py-2 text-sm rounded-lg bg-sky-600 text-white hover:bg-sky-700 transition"
+        >
+          + Create New Note
+        </Link>
+      </div>
+
+      {/* Form */}
       <form onSubmit={submit} className="space-y-3">
         <input required value={title} onChange={e=>setTitle(e.target.value)} placeholder="Title" className="w-full p-2 border rounded" />
         <input value={category} onChange={e=>setCategory(e.target.value)} placeholder="Category" className="w-full p-2 border rounded" />
         <input value={short_description} onChange={e=>setShortDescription(e.target.value)} placeholder="Short description" className="w-full p-2 border rounded" />
+
         <div>
           <label className="block mb-1">Feature image</label>
           <input type="file" accept="image/*" onChange={e=>setFile(e.target.files[0])} />
         </div>
+
         <textarea value={content} onChange={e=>setContent(e.target.value)} rows={12} placeholder="Markdown content" className="w-full p-2 border rounded" />
+
         <div className="flex items-center gap-3">
           <label>
             <input type="checkbox" checked={isPublished} onChange={e=>setIsPublished(e.target.checked)} /> Publish now

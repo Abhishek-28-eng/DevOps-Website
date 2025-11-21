@@ -44,6 +44,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import AdminLogin from "./pages/Admin/Login";
 import NewPost from "./pages/Admin/NewPost";
+import Notes from "./pages/Notes";
+import NewNote from "./pages/Admin/NewNote";
 
 function App() {
   return (
@@ -56,6 +58,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/newpost" element={<NewPost />} />
+        <Route path="/notes" element={<Notes />} />
+        <Route path="/admin/notes/new" element={<NewNote />} />
       </Routes>
       <Footer />
     </>

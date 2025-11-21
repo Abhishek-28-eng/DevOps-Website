@@ -22,8 +22,8 @@ export default function Navbar() {
           <Link to="/" className="hover:text-sky-500 transition-colors">
             Home
           </Link>
-          <Link to="/" className="hover:text-sky-500 transition-colors">
-            Tutorials
+          <Link to="/notes" className="hover:text-sky-500 transition-colors">
+            Notes
           </Link>
           <Link to="/about" className="hover:text-sky-500 transition-colors">
             About
@@ -51,8 +51,8 @@ export default function Navbar() {
           <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-sky-500">
             Home
           </Link>
-          <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-sky-500">
-            Tutorials
+          <Link to="/notes" onClick={() => setIsOpen(false)} className="hover:text-sky-500">
+            Notes
           </Link>
           <Link to="/about" onClick={() => setIsOpen(false)} className="hover:text-sky-500">
             About
