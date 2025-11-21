@@ -13,7 +13,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-1">
           <h1 className="font-bold text-2xl tracking-tight">
             <span className="text-gray-900">Dev</span>
-            <span className="text-sky-500">Sphere</span>
+            <span className="text-sky-500">withabhi</span>
           </h1>
         </Link>
 
